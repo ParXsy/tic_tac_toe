@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- Page ---------- */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #dff9fb, #c7ecee);
+    text-align: center;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: #222;
+}
+
+h1 {
+    margin-top: 1.5rem;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+/* ---------- Game Layout ---------- */
+.container {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5vmin;
+    justify-content: center;
+    align-items: center;
+    padding: 1vmin;
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Boxes ---------- */
+.box {
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    border: none;
+    font-size: 8vmin;
+    font-weight: bold;
+    cursor: pointer;
+
+    background: #fff3b0;
+    color: #e74c3c;
+
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: 
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.box:hover {
+    background-color: #ffe066;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25);
+}
+
+.box:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+/* ---------- Buttons ---------- */
+#reset,
+#new-btn {
+    margin-top: 1.5rem;
+    padding: 0.9rem 1.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+
+    background: #2d3436;
+    color: #fff;
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#reset:hover,
+#new-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- Message Overlay ---------- */
+.msg-container {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 10;
+}
+
+#msg {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+
+/* ---------- Utility ---------- */
+.hide {
+    display: none;
+}
+
+/* 🎆 Fireworks */
+.firework {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: explode 1.2s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0.3);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x), var(--y)) scale(1.2);
+        opacity: 0;
+    }
+}
